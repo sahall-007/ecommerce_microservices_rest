@@ -24,32 +24,42 @@ jobs:
         with:
           context: ./api_gateway
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest
+            ${{ secrets.DOCKER_USERNAME }}/api-gateway:${{ github.sha }}
 
       - name: Build and push User Service
         uses: docker/build-push-action@v6
         with:
           context: ./user_service
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/user-service:latest
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/user-service:latest
+            ${{ secrets.DOCKER_USERNAME }}/user-service:${{ github.sha }}
 
       - name: Build and push Product Service
         uses: docker/build-push-action@v6
         with:
           context: ./product_service
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/product-service:latest
+          tags: |
+           ${{ secrets.DOCKER_USERNAME }}/product-service:latest
+           ${{ secrets.DOCKER_USERNAME }}/product-service:${{ github.sha }}
 
       - name: Build and push Cart Service
         uses: docker/build-push-action@v6
         with:
           context: ./cart_service
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/cart-service:latest
+          tags: |
+           ${{ secrets.DOCKER_USERNAME }}/cart-service:latest
+           ${{ secrets.DOCKER_USERNAME }}/cart-service:${{ github.sha }}
 
       - name: Build and push Order Service
         uses: docker/build-push-action@v6
         with:
           context: ./order_service
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/order-service:latest
+          tags: |
+           ${{ secrets.DOCKER_USERNAME }}/order-service:latest
+           ${{ secrets.DOCKER_USERNAME }}/order-service:${{ github.sha }}

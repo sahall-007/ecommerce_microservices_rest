@@ -16,5 +16,9 @@
     "express": "^5.2.1",
     "kafkajs": "^2.2.4",
     "mongoose": "^9.9.3"
+  },
+  "devDependencies": {
+    "jest": "^30.5.1",
+    "supertest": "^7.2.2"
   }
 }
