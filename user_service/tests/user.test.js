@@ -1,10 +1,10 @@
 import request from 'supertest'
 import connectDb from '../config/mongoDb.js'
 import { disconnectDB } from '../config/mongoDb.js'
-import app from '../app.js'
+import app from '../server.js'
 import UserSchema from '../models/userSchema.js'
 
-describe("GET /products/:id", () => {
+describe("GET /user/getUser/:userId", () => {
 
     let user
 
@@ -23,9 +23,11 @@ describe("GET /products/:id", () => {
     });
 
     // Runs AFTER EVERY test
-    // afterEach(async () => {
-    //     await ProductSchema.deleteMany({});
-    // });
+    afterEach(async () => {
+    await UserSchema.deleteMany({
+        email: "testuser@gmail.com"
+    });
+});
 
     // Runs ONCE after all tests
     afterAll(async () => {

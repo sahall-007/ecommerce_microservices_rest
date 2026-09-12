@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "keywords": [],
   "author": "",
